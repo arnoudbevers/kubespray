@@ -1,5 +1,5 @@
 ---
-helm_enabled: false
+helm_enabled: true
 
 # specify a dir and attach it to helm for HELM_HOME.
 helm_home_dir: "/root/.helm"

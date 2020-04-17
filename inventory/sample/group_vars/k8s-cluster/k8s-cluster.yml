@@ -227,10 +227,6 @@ podsecuritypolicy_enabled: false
 # Download kubectl onto the host that runs Ansible in {{ bin_dir }}
 # kubectl_localhost: false
 
-
-#  Enable creation of QoS cgroup hierarchy, if true top level QoS and pod cgroups are created. (default true)
-# kubelet_cgroups_per_qos: true
-
 # A comma separated list of levels of node allocatable enforcement to be enforced by kubelet.
 # Acceptable options are 'pods', 'system-reserved', 'kube-reserved' and ''. Default is "".
 # kubelet_enforce_node_allocatable: pods
@@ -255,7 +251,8 @@ podsecuritypolicy_enabled: false
 ## See https://github.com/kubernetes-sigs/kubespray/issues/2141
 ## Set this variable to true to get rid of this issue
 volume_cross_zone_attachment: false
-# Add Persistent Volumes Storage Class for corresponding cloud provider (supported: in-tree OpenStack, Cinder CSI, AWS EBS CSI, GCP Persistent Disk CSI)
+## Add Persistent Volumes Storage Class for corresponding cloud provider (supported: in-tree OpenStack, Cinder CSI,
+## AWS EBS CSI, Azure Disk CSI, GCP Persistent Disk CSI)
 persistent_volumes_enabled: false
 
 ## Container Engine Acceleration

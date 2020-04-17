@@ -2,7 +2,7 @@
 
 ![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes-sigs/kubespray/master/docs/img/kubernetes-logo.png)
 
-If you have questions, check the [documentation](https://kubespray.io) and join us on the [kubernetes slack](https://kubernetes.slack.com), channel **\#kubespray**.
+If you have questions, check the documentation at [kubespray.io](https://kubespray.io) and join us on the [kubernetes slack](https://kubernetes.slack.com), channel **\#kubespray**.
 You can get your invite [here](http://slack.k8s.io/)
 
 - Can be deployed on **AWS, GCE, Azure, OpenStack, vSphere, Packet (bare metal), Oracle Cloud Infrastructure (Experimental), or Baremetal**
@@ -103,7 +103,7 @@ vagrant up
 - **Container Linux by CoreOS**
 - **Debian** Buster, Jessie, Stretch, Wheezy
 - **Ubuntu** 16.04, 18.04
-- **CentOS/RHEL** 7
+- **CentOS/RHEL** 7, 8 (experimental: see [centos 8 notes](docs/centos8.md)
 - **Fedora** 28
 - **Fedora CoreOS** (experimental: see [fcos Note](docs/fcos.md)
 - **openSUSE** Leap 42.3/Tumbleweed
@@ -133,16 +133,15 @@ Note: Upstart/SysV init based OS types are not supported.
   - [cephfs-provisioner](https://github.com/kubernetes-incubator/external-storage) v2.1.0-k8s1.11
   - [rbd-provisioner](https://github.com/kubernetes-incubator/external-storage) v2.1.1-k8s1.11
   - [cert-manager](https://github.com/jetstack/cert-manager) v0.11.0
-  - [coredns](https://github.com/coredns/coredns) v1.6.7
-  - [ingress-nginx](https://github.com/kubernetes/ingress-nginx) v0.28.0
+  - [coredns](https://github.com/coredns/coredns) v1.6.9
+  - [ingress-nginx](https://github.com/kubernetes/ingress-nginx) v0.30.0
 
 Note: The list of validated [docker versions](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.16.md) was updated to 1.13.1, 17.03, 17.06, 17.09, 18.06, 18.09. kubeadm now properly recognizes Docker 18.09.0 and newer, but still treats 18.06 as the default supported version. The kubelet might break on docker's non-standard version numbering (it no longer uses semantic versioning). To ensure auto-updates don't break your cluster look into e.g. yum versionlock plugin or apt pin).
 
 ## Requirements
 
 - **Minimum required version of Kubernetes is v1.15**
-- **Ansible v2.7.8 and python-netaddr is installed on the machine that will run Ansible commands**
-- **Jinja 2.9 (or newer) is required to run the Ansible Playbooks**
+- **Ansible v2.9+, Jinja 2.11+ and python-netaddr is installed on the machine that will run Ansible commands**
 - The target servers must have **access to the Internet** in order to pull docker images. Otherwise, additional configuration is required (See [Offline Environment](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/downloads.md#offline-environment))
 - The target servers are configured to allow **IPv4 forwarding**.
 - **Your ssh key must be copied** to all the servers part of your inventory.
